@@ -1,7 +1,10 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    
-    Route::get('userList','AuthController@getUserList');
+    Route::post('logout', [LoginController::class,'logout'])->name('logout');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 });
