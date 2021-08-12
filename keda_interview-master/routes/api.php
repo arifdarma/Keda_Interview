@@ -23,11 +23,11 @@ use App\Http\Controllers\ReportController;
 Route::group(['prefix' => 'auth'], function () {
     Route::post('logout', [LoginController::class,'logout'])->name('logout');
     Route::post('login', [LoginController::class, 'login'])->name('login');
-    Route::get('delete/{id}', [StaffController::class, 'delete_customer']);
-    Route::get('all_customer', [StaffController::class, 'all_customer']);
+    Route::get('delete/{id}', [StaffController::class, 'delete_customer'])->name('delete');
+    Route::get('all_customer', [StaffController::class, 'all_customer'])->name('all_customer');
 });
 
-Route::post('send_message', [MessageController::class, 'send']);
-Route::get('history_customer', [MessageController::class, 'history_customer']);
-Route::get('all_history', [MessageController::class, 'all_history']);
-Route::post('report',[ReportController::class,'report']);
+Route::post('send_message', [MessageController::class, 'send'])->name('send_message');
+Route::get('history_customer', [MessageController::class, 'history_customer'])->name('history_customer');
+Route::get('all_history', [MessageController::class, 'all_history'])->name('all_history');
+Route::post('report',[ReportController::class,'report'])->name('report');
